@@ -1,0 +1,8 @@
+﻿Add the migration:
+dotnet ef --startup-project ../BookReader.Api/ migrations add [MigrationName]
+
+Update the database to the latest version:
+dotnet ef --startup-project ../BookReader.Api/ database update
+
+Update the database to specific migration version:
+dotnet ef --startup-project ../BookReader.Api/ database update [MigrationName]
