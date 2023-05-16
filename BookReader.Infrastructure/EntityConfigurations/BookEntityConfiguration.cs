@@ -15,6 +15,7 @@ namespace BookReader.Infrastructure.EntityConfigurations
             builder.Property(t => t.Year).IsRequired();
             builder.Property(t => t.Publisher);
             builder.Property(t => t.NumberOfPages);
+            builder.Property(t => t.Isbn);
         }
     }
 }

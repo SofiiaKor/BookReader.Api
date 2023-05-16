@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace BookReader.Api.Infrastructure.Extensions
@@ -53,13 +52,8 @@ namespace BookReader.Api.Infrastructure.Extensions
 				options.Filters.Add(typeof(ExceptionHandlingFilter));
 			}).AddNewtonsoftJson();
 
-			//var serviceProvider = services.BuildServiceProvider();
-			//var logger = serviceProvider.GetService<ILogger<Logger>>();
-			//services.AddSingleton(typeof(ILogger), logger);
-
 			return services;
 		}
-
 
 		public static IApplicationBuilder MigrateDb(this IApplicationBuilder app)
 		{

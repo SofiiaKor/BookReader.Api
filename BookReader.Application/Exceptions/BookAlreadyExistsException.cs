@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookReader.Application.Exceptions
 {
-	class BookAlreadyExistsException : Exception
+	public class BookAlreadyExistsException : Exception
 	{
 		public BookAlreadyExistsException(string errorMessage) : base(errorMessage)
 		{

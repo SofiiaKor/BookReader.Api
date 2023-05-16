@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BookReader.Infrastructure.Models.Response
+namespace BookReader.Api.Response
 {
 	public partial class ApiResponse
 	{
@@ -22,13 +22,13 @@ namespace BookReader.Infrastructure.Models.Response
 		}
 	}
 
-	public class ExceptionApiResponse<T> : ApiResponse<T>
+	public class ErrorApiResponse : ApiResponse
 	{
-		public long TotalCount { get; } // ??
+		public string Message { get; }
 
-		public ExceptionApiResponse(HttpStatusCode statusCode, T response, long totalCount) : base(statusCode, response)
+		public ErrorApiResponse(HttpStatusCode statusCode, string message) : base(statusCode)
 		{
-			TotalCount = totalCount;
+			Message = message;
 		}
 	}
 }

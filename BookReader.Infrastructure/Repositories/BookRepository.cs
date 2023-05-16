@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookReader.Domain.Entities;
-using BookReader.Domain.Interface;
+using BookReader.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookReader.Infrastructure.Repositories

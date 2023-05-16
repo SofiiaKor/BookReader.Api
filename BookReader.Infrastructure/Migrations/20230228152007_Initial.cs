@@ -13,7 +13,11 @@ namespace BookReader.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Author = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Author = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false),
+                    Publisher = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NumberOfPages = table.Column<int>(type: "int", nullable: false),
+                    Isbn = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
