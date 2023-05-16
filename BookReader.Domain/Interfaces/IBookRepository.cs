@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using BookReader.Domain.Entities;
 
-namespace BookReader.Domain.Interface
+namespace BookReader.Domain.Interfaces
 {
     public interface IBookRepository
     {

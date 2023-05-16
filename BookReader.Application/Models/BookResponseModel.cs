@@ -10,11 +10,14 @@ namespace BookReader.Application.Models
 
         public string Author { get; }
 
-        public BookResponseModel(Guid id, string name, string author)
+        public long ISBN { get; }
+
+        public BookResponseModel(Guid id, string name, string author, long isbn)
         {
             Id = id;
             Name = name;
             Author = author;
+            ISBN = isbn;
         }
     }
 }

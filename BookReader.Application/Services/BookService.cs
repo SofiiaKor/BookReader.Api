@@ -5,7 +5,7 @@ using BookReader.Application.Exceptions;
 using BookReader.Application.Interfaces;
 using BookReader.Application.Models;
 using BookReader.Domain.Entities;
-using BookReader.Domain.Interface;
+using BookReader.Domain.Interfaces;
 using Mapster;
 
 namespace BookReader.Application.Services
@@ -26,7 +26,7 @@ namespace BookReader.Application.Services
 			if (exists)
 				throw new BookAlreadyExistsException("Book with such name already exists.");
 
-			var book = new Book(Guid.NewGuid(), request.Name, request.Author, request.Year, request.Publisher, request.NumberOfPages);
+			var book = new Book(Guid.NewGuid(), request.Name, request.Author, request.Year, request.Publisher, request.NumberOfPages, request.ISBN);
 
 			await _bookRepository.AddAsync(book);
 		}
@@ -45,7 +45,7 @@ namespace BookReader.Application.Services
 			if (book is null)
 				throw new BookNotFoundException($"Book with name: {name} doesn't exists.");
 
-			book.Update(request.Name, request.Author, request.Year, request.Publisher, request.NumberOfPages);
+			book.Update(request.Name, request.Author, request.Year, request.Publisher, request.NumberOfPages, request.ISBN);
 
 			await _bookRepository.UpdateAsync(book);
 		}

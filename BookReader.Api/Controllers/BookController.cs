@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
+using BookReader.Api.Response;
 using BookReader.Application.Interfaces;
 using BookReader.Application.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookReader.Api.Controllers
@@ -22,7 +22,7 @@ namespace BookReader.Api.Controllers
 		{
 			await _bookService.AddAsync(request);
 
-			return StatusCode(StatusCodes.Status201Created, request);
+			return ApiResponse.Created();
 		}
 
 		[HttpGet]
@@ -30,7 +30,7 @@ namespace BookReader.Api.Controllers
 		{
 			var books = await _bookService.GetAllAsync();
 
-			return Ok(books);
+			return ApiResponse.Success(books);
 		}
 
 		[HttpPut("{name}")]
@@ -38,7 +38,7 @@ namespace BookReader.Api.Controllers
 		{
 			await _bookService.UpdateAsync(name, request);
 
-			return Ok("Updated Successfully");
+			return ApiResponse.Success();
 		}
 
 		[HttpDelete("{name}")]
@@ -46,7 +46,7 @@ namespace BookReader.Api.Controllers
 		{
 			await _bookService.DeleteAsync(name);
 
-			return StatusCode(StatusCodes.Status201Created, name);
+			return ApiResponse.Created();
 		}
 	}
 }
